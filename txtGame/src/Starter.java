@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Starter {
     Scanner scanner = new Scanner(System.in);
     Bag ekwipunek = new Bag();
-
-
+    boolean kluczSzafka = false;
+    String kubek = "KUBEK";
     int pokoj = 0;
     int trybGry;
     int wybor;
@@ -70,7 +70,7 @@ public class Starter {
                     break;
                 case 3:
                     zasadyGry();
-                    zwolnijTekst("Wybierz opcje :\n1 - Przypomnij sobie , \n2 - Spróbuj dalej spać \n3 - Opis gry \n4-EXIT", ">", 0);
+                    zwolnijTekst("Wybierz opcje :\n1 - Przypomnij sobie , \n2 - Spróbuj dalej spać \n3 - Opis gry \n4 - EXIT", ">", 0);
 //                    System.out.println(">");
                     wybor = scanner.nextInt();
                     break;

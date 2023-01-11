@@ -3,60 +3,27 @@ public class Łazienka extends Starter {
     String tabletka = "TABLETKI";
     int ilośćTabletek = 1;
     int ilosckubek = 1;
-    String kubek = "KUBEK";
+
     int wybórŁazienka;
+    int wyborłazienkaOpis;
 
-    public int lazienka() {
+    public void lazienka() {
 
-        for (int i = 0; i < TEXT.lazienka.length; i++) {
-
-            zwolnijTekst(TEXT.lazienka[i], "", 0);
-
-
-        }
+        lazienkaStart();
+        lazienkaStartMenu();
         System.out.println(">");
         wybórŁazienka = scanner.nextInt();
-        switch (wybórŁazienka) {
-            case 1:
-                for (int i = 0; i < TEXT.lazienkaOpis.length; i++) ;
-                wyborZLazienki();
-                break;
-            case 2:
-                zasadyGry();
-//                    bag.add(kubek);
-//                    System.out.println("dodano " + kubek+"do ekwipunku");
-                break;
-            case 3:
-                exit();
-//                    wyborZLazienki();
-                break;
-            case 4:
-                System.out.println("bf");
-               zasadyGry();
-                break;
-            case 5:
-                ekwipunek.przeglądEkwipunku();
-                break;
-            case 6:
-                System.out.println("Bf");
-                break;
-            default:
-                System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
-                System.out.println(">");
-                wybor = scanner.nextInt();
+        switchLazienka1();
 
 
-        }
-        return wybórŁazienka;
     }
 
     public void wyborZLazienki() {
-        System.out.println(">");
+
         switch (wybórŁazienka) {
             case 1:
-                for (int i = 0; i < TEXT.lazienkaOpis.length; i++) {
-                    zwolnijTekst(TEXT.lazienkaOpis[i], "", 0);
-                }
+                lazienkaOpis();
+                lazienkaMenu();
                 wybórŁazienka = scanner.nextInt();
                 System.out.println("> chyba tu");
                 wyborZLazienkiOpcje();
@@ -85,44 +52,52 @@ public class Łazienka extends Starter {
     }
 
     public void wyborZLazienkiOpcje() {
-        switch (wybórŁazienka) {
+        switch (wyborłazienkaOpis) {
             case 1:
-
-                if (ilośćTabletek == 0 ){
+                if (ilośćTabletek == 0) {
                     System.out.println("Niemożesz zabrać kolejnej tabletki do ekwipunku ");
-                }
-                else{
+                } else {
                     bag.add(tabletka);
-                System.out.println("dodano " + tabletka + " do ekwipunku");
-                ilośćTabletek--;}
+                    System.out.println("dodano " + tabletka + " do ekwipunku");
+                    ilośćTabletek--;
+                }
+                lazienkaMenu();
+                System.out.println(">");
+                wyborłazienkaOpis = scanner.nextInt();
+                wyborZLazienkiOpcje();
 
-//                System.out.println(">");
-//                wybórŁazienka = scanner.nextInt();
-                wyborZLazienki();
                 break;
             case 2:
+                if (ilosckubek == 0) {
+                    System.out.println("Niemożesz zabrać kolejego kubka ");}
+                else{
                 bag.add(kubek);
                 System.out.println("dodano " + kubek + " do ekwipunku");
-                if (ilosckubek == 0 ){
-                    System.out.println("Niemożesz zabrać kolejnej tabletki do ekwipunku ");
-                }
-                ilosckubek --;
-                wyborZLazienki();
-
+                                ilosckubek--;}
+                lazienkaMenu();
+                System.out.println(">");
+                wyborłazienkaOpis = scanner.nextInt();
+                wyborZLazienkiOpcje();
                 break;
             case 3:
-                for (int i = 0; i < TEXT.lazienkaOpis.length; i++) {
-                    zwolnijTekst(TEXT.lazienkaOpis[i], "", 0);
-                }
-                wybórŁazienka = scanner.nextInt();
+                lazienkaOpis();
+                lazienkaMenu();
                 System.out.println(">");
+                wyborłazienkaOpis = scanner.nextInt();
                 wyborZLazienkiOpcje();
                 break;
             case 4:
                 zasadyGry();
+                lazienkaMenu();
+                System.out.println(">");
+                wyborłazienkaOpis = scanner.nextInt();
+                wyborZLazienkiOpcje();
                 break;
             case 5:
                 ekwipunek.przeglądEkwipunku();
+                System.out.println(">");
+                wyborłazienkaOpis = scanner.nextInt();
+                wyborZLazienkiOpcje();
                 break;
             case 6:
                 System.out.println("idę do salonu ");
@@ -140,6 +115,76 @@ public class Łazienka extends Starter {
 
 
     }
-}
 
+    public void lazienkaStart() {
+        for (int i = 0; i < TEXT.lazienkaStart.length; i++) {
+            zwolnijTekst(TEXT.lazienkaStart[i], "", 0);
+        }
+    }
+
+    public void lazienkaStartMenu() {
+        for (int i = 0; i < TEXT.lazienkaStartMenu.length; i++) {
+            zwolnijTekst(TEXT.lazienkaStartMenu[i], "", 0);
+        }
+    }
+
+    public void lazienkaOpis() {
+        for (int i = 0; i < TEXT.lazienkaOpis.length; i++) {
+            zwolnijTekst(TEXT.lazienkaOpis[i], "", 0);
+        }
+    }
+
+    public void lazienkaMenu() {
+        for (int i = 0; i < TEXT.lazienkaMenu.length; i++) {
+            zwolnijTekst(TEXT.lazienkaMenu[i], "", 0);
+        }
+    }
+
+    public void switchLazienka1() {
+        switch (wybórŁazienka) {
+            case 1:
+                lazienkaOpis();
+                lazienkaMenu();
+                System.out.println(">");
+                wyborłazienkaOpis = scanner.nextInt();
+                wyborZLazienkiOpcje();
+                break;
+            case 2:
+                zasadyGry();
+                System.out.println("");
+                lazienkaStartMenu();
+                System.out.println(">");
+                wybórŁazienka = scanner.nextInt();
+                switchLazienka1();
+                break;
+            case 3:
+                exit();
+                break;
+            case 4:
+
+                Salon pomieszczenie = new Salon();
+                pomieszczenie.opisSalon();
+                break;
+            case 5:
+                ekwipunek.przeglądEkwipunku();
+                lazienkaStartMenu();
+                System.out.println(">");
+                wybórŁazienka = scanner.nextInt();
+                switchLazienka1();
+                break;
+            case 6:
+                System.out.println("Kuchnia");
+                //kuchnia.starterKuchnia();
+                break;
+            default:
+                System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
+                System.out.println(">");
+                wybor = scanner.nextInt();
+
+
+        }
+    }
+
+
+}
 

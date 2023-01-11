@@ -4,7 +4,7 @@ public class Salon extends Starter {
     int salonWspomnienie;
     int salondzialanie;
     int passwordtry = 0;
-    boolean key = false;
+    Kuchnia kuchnia = new Kuchnia();
     Łazienka łazienka = new Łazienka();
     boolean yubiKey = true;
 
@@ -15,30 +15,7 @@ public class Salon extends Starter {
         }
         System.out.println(">");
         salonWspomnienie = scanner.nextInt();
-        switch (salonWspomnienie) {
-            case 1:
-                for (int i = 0; i < TEXT.salonDzialanieIntro.length; i++) {
-
-                    zwolnijTekst(TEXT.salonDzialanieIntro[i], "", 0);
-                }
-                for (int i = 0; i < TEXT.salonDzialanie.length; i++) {
-
-                    zwolnijTekst(TEXT.salonDzialanie[i], "", 0);
-                }
-                System.out.println(">");
-                salondzialanie = scanner.nextInt();
-                salonPrzeszukanie();
-                break;
-            case 2:
-
-                łazienka.lazienka();
-                break;
-            case 3:
-                zasadyGry();
-                break;
-            default:
-                System.out.println("jesz");
-        }
+        salonOpisSwich();
 
     }
 
@@ -78,7 +55,7 @@ public class Salon extends Starter {
                 salondzialanie = scanner.nextInt();
                 salonPrzeszukanie();
             case 4:
-                System.out.println("salonPrzeszukanie case 4");
+                kuchnia.starterKuchnia();
                 break;
             case 5:
                 for (int i = 0; i < bag.size(); i++) {
@@ -116,10 +93,10 @@ public class Salon extends Starter {
         do {
             switch (kluczValue) {
                 case 1:
-                    if (!key) {
+                    if (!kluczSzafka) {
                         bag.add(klucz);
                         System.out.println("dodano " + klucz + " do ekwipunku");
-                        key = true;
+                        kluczSzafka = true;
                     } else {
                         System.out.println("klucz został już dodany ");
                     }
@@ -132,7 +109,7 @@ public class Salon extends Starter {
                     break;
 
                 case 2:
-                    if (key) {
+                    if (kluczSzafka) {
                         System.out.println("mam klucz, nic więcej nie znajdę. Idź do kuchni :)");
 
                     } else {
@@ -155,7 +132,7 @@ public class Salon extends Starter {
                     zasadyGry();
                     break;
                 case 5:
-                    System.out.println("Kuchnia ");
+                    kuchnia.starterKuchnia();
                     break;
                 case  6 :
 
@@ -177,13 +154,51 @@ public class Salon extends Starter {
                     break;
             }
         }
-        while (!key);
+        while (!kluczSzafka);
 
 
         salondzialanie = scanner.nextInt();
         salonPrzeszukanie();
 
 
+    }
+    public void salonOpisSwich(){
+        switch (salonWspomnienie) {
+            case 1:
+                for (int i = 0; i < TEXT.salonDzialanieIntro.length; i++) {
+
+                    zwolnijTekst(TEXT.salonDzialanieIntro[i], "", 0);
+                }
+                for (int i = 0; i < TEXT.salonDzialanie.length; i++) {
+
+                    zwolnijTekst(TEXT.salonDzialanie[i], "", 0);
+                }
+                System.out.println(">");
+                salondzialanie = scanner.nextInt();
+                salonPrzeszukanie();
+                break;
+            case 2:
+                łazienka.lazienka();
+                break;
+            case 3:
+                zasadyGry();
+                break;
+            case 4:
+                kuchnia.starterKuchnia();
+                break;
+            case  5 :
+                ekwipunek.przeglądEkwipunku();
+                System.out.println("1 - Wstań i szukaj jakiś wskazówek\n" +
+                        "2 - Siku !!! - Idź się do łazienki\n" +
+                        "3 - Potrzebuje pomocy\n" +
+                        "4 - Idz do kuchni(bf)\n" +
+                        "5 - Ekwiunek");
+                System.out.println(">");
+                salonWspomnienie = scanner.nextInt();
+                salonOpisSwich();
+            default:
+                System.out.println("jest w opis salon w defoult");
+        }
     }
 }
 
