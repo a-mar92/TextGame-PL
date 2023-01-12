@@ -1,9 +1,9 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Starter {
+
     Scanner scanner = new Scanner(System.in);
-    Bag ekwipunek = new Bag();
+    static LinkedList<String> bag = new LinkedList();
     boolean kluczSzafka = false;
     String kubek = "KUBEK";
     int pokoj = 0;
@@ -12,9 +12,7 @@ public class Starter {
     String nazwaGracza;
     String item = "LATARKA";
     String[] textStart = {"Beep !", "ależ ciężki poranek....", " czujesz to ?", "Bolą ręce, głowa, stopy..... ", "co się wczoraj działo ?!.... "
-
     };
-    ArrayList<String> bag = new ArrayList<>();
 
     public void app() {
         System.out.println("Witaj w grze tekstowiej, podaj swoje imię:  ");
@@ -60,7 +58,7 @@ public class Starter {
             switch (wybor) {
                 case 1:
                     wspomnienie();
-                    petal=false;
+                    petal = false;
                     break;
                 case 2:
                     System.out.println("Nic to nie da :(");
@@ -167,5 +165,33 @@ public class Starter {
 
     }
 
+    public void przeglądEkwipunku() {
+        System.out.println("Masz w plecaku " + Starter.bag.size() + " przedmiotów");
 
-}
+        System.out.println(Starter.bag);
+    }
+    public void dodawnieDoPlecaka(String przedmiot){
+        if (Starter.bag.isEmpty()){
+        Starter.bag.add(przedmiot);
+            System.out.println("dodana" +
+                    przedmiot);}
+    else {
+
+            if (Starter.bag.contains(przedmiot)){
+                System.out.println("nie możesz dodać " + przedmiot);
+                System.out.println(przedmiot+" : masz go już w plecaku");
+
+            }
+            else {
+                Starter.bag.add(przedmiot);
+                System.out.println("dodano " + przedmiot + " do ekwipunku");
+            }
+
+
+        }}
+
+    }
+
+
+
+

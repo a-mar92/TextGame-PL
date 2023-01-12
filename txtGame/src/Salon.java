@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Salon extends Starter {
 
     String klucz = "KLUCZ";
@@ -58,14 +60,16 @@ public class Salon extends Starter {
                 kuchnia.starterKuchnia();
                 break;
             case 5:
+                łazienka.lazienka();
+                break;
+            case 6:
                 for (int i = 0; i < bag.size(); i++) {
-                    if (bag.size()==0){
+                    if (Starter.bag.size() == 0) {
                         System.out.println("plecak pusty");
-                    }
-                    else
-                        System.out.println("w plecaku masz : " +  bag.get(i));
+                    } else
+                        System.out.println("w plecaku masz : " + Starter.bag.get(i));
                 }
-                System.out.println("Twój ekwipunek to : " + bag.size());
+                System.out.println("Twój ekwipunek to : " + Starter.bag.size());
 
                 for (int i = 0; i < TEXT.salonDzialanie.length; i++) {
 
@@ -84,44 +88,48 @@ public class Salon extends Starter {
 
         }
     }
-    private void salonPrzeszukanieCase2(){for (int i = 0; i < TEXT.salonDzialanieLozko.length; i++) {
-        zwolnijTekst(TEXT.salonDzialanieLozko[i], "", 0);
-    }
+
+    private void salonPrzeszukanieCase2() {
+        for (int i = 0; i < TEXT.salonDzialanieLozko.length; i++) {
+            zwolnijTekst(TEXT.salonDzialanieLozko[i], "", 0);
+        }
         System.out.println(">");
         int kluczValue = scanner.nextInt();
 
         do {
             switch (kluczValue) {
                 case 1:
-                    if (!kluczSzafka) {
-                        bag.add(klucz);
-                        System.out.println("dodano " + klucz + " do ekwipunku");
-                        kluczSzafka = true;
-                    } else {
-                        System.out.println("klucz został już dodany ");
-                    }
+                    dodawnieDoPlecaka("KLUCZ");
+//                    if (!kluczSzafka) {
+//                        Starter.bag.add(klucz);
+//                        System.out.println("dodano " + klucz + " do ekwipunku");
+//                        kluczSzafka = true;
+//
+//                    } else {
+//                        System.out.println("klucz został już dodany ");
 
                     for (int i = 0; i < TEXT.salonDzialanie.length; i++) {
 
                         zwolnijTekst(TEXT.salonDzialanie[i], "", 0);
                     }
-
+                    kluczValue = scanner.nextInt();
                     break;
 
                 case 2:
-                    if (kluczSzafka) {
-                        System.out.println("mam klucz, nic więcej nie znajdę. Idź do kuchni :)");
-
-                    } else {
+                    dodawnieDoPlecaka(klucz);
+//                    if (kluczSzafka) {
+//                        System.out.println("mam klucz, nic więcej nie znajdę. Idź do kuchni :)");
+//
+//                    } else {
                         System.out.println("znalezłem klucz od szafki,zabierz go do ekwipunku. Nic innego tutaj nie ma" +
                                 "\n1 - Zabierz klucz " +
                                 "2 - szukaj innych wskazówek" +
-                                " 3 - Idź się do łazienki " +
+                                "3 - Idź się do łazienki " +
                                 "4 - Potrzebuje pomocy " +
                                 "5 - Idz do kuchni(bf) " +
                                 "6 - Ekwiunek(bf)"
                         );
-                    }
+
                     kluczValue = scanner.nextInt(); //nie wiem po co to
                     //System.out.println(TEXT.salonDzialanie);
                     break;
@@ -134,19 +142,18 @@ public class Salon extends Starter {
                 case 5:
                     kuchnia.starterKuchnia();
                     break;
-                case  6 :
+                case 6:
 
                     for (int i = 0; i < bag.size(); i++) {
-                        if (bag.size()==0){
+                        if (Starter.bag.size() == 0) {
                             System.out.println("plecak pusty");
-                        }
-                        else
-                            System.out.println(bag.get(i));
+                        } else
+                            System.out.println(Starter.bag.get(i));
                     }
-                    System.out.println("Twój ekwipunek to : " + bag.size()+
+                    System.out.println("Twój ekwipunek to : " + Starter.bag.size() +
                             "\n 1 - Zabierz klucz " +
                             "2 - szukaj innych wskazówek" +
-                            " 3 - Idź się do łazienki " +
+                            "3 - Idź się do łazienki " +
                             "4 - Potrzebuje pomocy " +
                             "5 - Idz do kuchni(bf) " +
                             "6 - Ekwiunek(bf)");
@@ -162,7 +169,8 @@ public class Salon extends Starter {
 
 
     }
-    public void salonOpisSwich(){
+
+    public void salonOpisSwich() {
         switch (salonWspomnienie) {
             case 1:
                 for (int i = 0; i < TEXT.salonDzialanieIntro.length; i++) {
@@ -186,16 +194,18 @@ public class Salon extends Starter {
             case 4:
                 kuchnia.starterKuchnia();
                 break;
-            case  5 :
-                ekwipunek.przeglądEkwipunku();
+            case 5:
+                przeglądEkwipunku();
                 System.out.println("1 - Wstań i szukaj jakiś wskazówek\n" +
                         "2 - Siku !!! - Idź się do łazienki\n" +
                         "3 - Potrzebuje pomocy\n" +
                         "4 - Idz do kuchni(bf)\n" +
-                        "5 - Ekwiunek");
+                        "5 - Ekwiunek(bf)\n"
+                );
                 System.out.println(">");
                 salonWspomnienie = scanner.nextInt();
                 salonOpisSwich();
+                break;
             default:
                 System.out.println("jest w opis salon w defoult");
         }

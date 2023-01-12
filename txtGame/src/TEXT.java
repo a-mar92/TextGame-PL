@@ -8,7 +8,7 @@ public class TEXT {
             "rozglądasz się po pokoju, widzisz stół, a na nim laptop, krzesła," +
                     " kwiaty", "co robisz ?",
             "1 - Wstań i szukaj jakiś wskazówek", "2 - Siku !!! - Idź się do łazienki",
-            "3 - Potrzebuje pomocy", "4 - Idz do kuchni(bf)", "5 - Ekwiunek(bf)"};
+            "3 - Potrzebuje pomocy", "4 - Idz do kuchni", "5 - Ekwiunek"};
     static String[] opisSalonPowrot = {"-SALON-", "wracasz do salonu, z tego co pamiętasz, uwierało cię coś plecach", "Może pora poszukać wspazówek? ",
 
             "rozglądasz się po pokoju, widzisz stół, a na nim laptop, krzesła," +
@@ -16,11 +16,12 @@ public class TEXT {
             "1- szukaj jakiś wskazówek", "2 - Idź się do łazienki",
             "3- Potrzebuje pomocy", "4 - Idz do kuchni(bf)", "5- Ekwiunek(bf)"};
     static String[] salonDzialanie = {
-            "\n1 - przeszukaj Laptop",
-            "\n2 - przeszukaj łóżko",
-            "\n3 - Potrzebuje pomocy",
-            "\n4 - Idz do kuchni(bf)",
-            "\n5- Ekwiunek(bf) "};
+            "1 - przeszukaj Laptop",
+            "2 - przeszukaj łóżko",
+            "3 - Potrzebuje pomocy",
+            "4 - Idz do kuchni(bf)",
+            "5 - Idz do łazienki",
+            "6 - Ekwiunek "};
     static String[] salonDzialanieIntro = {
             "Pora rozprpstować nogi",
             "wstajesz powoli",

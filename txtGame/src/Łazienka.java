@@ -1,6 +1,6 @@
 public class Łazienka extends Starter {
 
-    String tabletka = "TABLETKI";
+    String tabletka = "TABLETKA";
     int ilośćTabletek = 1;
     int ilosckubek = 1;
 
@@ -39,7 +39,7 @@ public class Łazienka extends Starter {
                 zasadyGry();
                 break;
             case 5:
-                ekwipunek.przeglądEkwipunku();
+                przeglądEkwipunku();
                 break;
             case 6:
                 break;
@@ -54,13 +54,7 @@ public class Łazienka extends Starter {
     public void wyborZLazienkiOpcje() {
         switch (wyborłazienkaOpis) {
             case 1:
-                if (ilośćTabletek == 0) {
-                    System.out.println("Niemożesz zabrać kolejnej tabletki do ekwipunku ");
-                } else {
-                    bag.add(tabletka);
-                    System.out.println("dodano " + tabletka + " do ekwipunku");
-                    ilośćTabletek--;
-                }
+                dodawnieDoPlecaka(tabletka);
                 lazienkaMenu();
                 System.out.println(">");
                 wyborłazienkaOpis = scanner.nextInt();
@@ -68,12 +62,7 @@ public class Łazienka extends Starter {
 
                 break;
             case 2:
-                if (ilosckubek == 0) {
-                    System.out.println("Niemożesz zabrać kolejego kubka ");}
-                else{
-                bag.add(kubek);
-                System.out.println("dodano " + kubek + " do ekwipunku");
-                                ilosckubek--;}
+                dodawnieDoPlecaka(kubek);
                 lazienkaMenu();
                 System.out.println(">");
                 wyborłazienkaOpis = scanner.nextInt();
@@ -94,7 +83,7 @@ public class Łazienka extends Starter {
                 wyborZLazienkiOpcje();
                 break;
             case 5:
-                ekwipunek.przeglądEkwipunku();
+               przeglądEkwipunku();
                 System.out.println(">");
                 wyborłazienkaOpis = scanner.nextInt();
                 wyborZLazienkiOpcje();
@@ -104,9 +93,12 @@ public class Łazienka extends Starter {
                 for (int i = 0; i < TEXT.opisSalon.length; i++) {
                     zwolnijTekst(TEXT.opisSalon[i], "", 0);
                 }
+                Salon pomieszczenie = new Salon();
+                pomieszczenie.opisSalon();
                 break;
             case 7:
                 System.out.println("ide do kuchni");
+                break;
             default:
                 System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
                 System.out.println(">");
@@ -166,7 +158,7 @@ public class Łazienka extends Starter {
                 pomieszczenie.opisSalon();
                 break;
             case 5:
-                ekwipunek.przeglądEkwipunku();
+                przeglądEkwipunku();
                 lazienkaStartMenu();
                 System.out.println(">");
                 wybórŁazienka = scanner.nextInt();
