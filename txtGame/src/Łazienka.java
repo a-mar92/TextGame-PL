@@ -1,5 +1,5 @@
 public class Łazienka extends Starter {
-
+    Kuchnia kuchnia = new Kuchnia();
     String tabletka = "TABLETKA";
     int ilośćTabletek = 1;
     int ilosckubek = 1;
@@ -8,7 +8,7 @@ public class Łazienka extends Starter {
     int wyborłazienkaOpis;
 
     public void lazienka() {
-
+        System.out.println("wybór z Łazineki");
         lazienkaStart();
         lazienkaStartMenu();
         System.out.println(">");
@@ -18,38 +18,38 @@ public class Łazienka extends Starter {
 
     }
 
-    public void wyborZLazienki() {
+//    public void wyborZLazienki() {
+//
+//        switch (wybórŁazienka) {
+//            case 1:
+//                lazienkaOpis();
+//                lazienkaMenu();
+//                wybórŁazienka = scanner.nextInt();
+//                System.out.println("> chyba tu");
+//                wyborZLazienkiOpcje();
+//                break;
+//            case 2:
+//                informacjeŁazienka();
+//                break;
+//            case 6:
+//                exit();
+////                    wyborZLazienki();
+//                break;
+//            case 4:
+//                informacjeŁazienka();
+//                break;
+//            case 5:
+//                uzycieEkwipunku();
+//                break;
+//            case 3:
+//                break;
+//            default:
+//                System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
+//                System.out.println(">");
+//                wybor = scanner.nextInt();
+//        }
 
-        switch (wybórŁazienka) {
-            case 1:
-                lazienkaOpis();
-                lazienkaMenu();
-                wybórŁazienka = scanner.nextInt();
-                System.out.println("> chyba tu");
-                wyborZLazienkiOpcje();
-                break;
-            case 2:
-                zasadyGry();
-                break;
-            case 3:
-                exit();
-//                    wyborZLazienki();
-                break;
-            case 4:
-                zasadyGry();
-                break;
-            case 5:
-                przeglądEkwipunku();
-                break;
-            case 6:
-                break;
-            default:
-                System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
-                System.out.println(">");
-                wybor = scanner.nextInt();
-        }
-
-    }
+//    }
 
     public void wyborZLazienkiOpcje() {
         switch (wyborłazienkaOpis) {
@@ -76,14 +76,14 @@ public class Łazienka extends Starter {
                 wyborZLazienkiOpcje();
                 break;
             case 4:
-                zasadyGry();
+                informacjeŁazienka();
                 lazienkaMenu();
                 System.out.println(">");
                 wyborłazienkaOpis = scanner.nextInt();
                 wyborZLazienkiOpcje();
                 break;
             case 5:
-               przeglądEkwipunku();
+               uzycieEkwipunku();
                 System.out.println(">");
                 wyborłazienkaOpis = scanner.nextInt();
                 wyborZLazienkiOpcje();
@@ -97,7 +97,9 @@ public class Łazienka extends Starter {
                 pomieszczenie.opisSalon();
                 break;
             case 7:
-                System.out.println("ide do kuchni");
+               // Kuchnia kuchnia = new Kuchnia();
+                kuchnia.starterKuchnia();
+
                 break;
             default:
                 System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
@@ -142,7 +144,7 @@ public class Łazienka extends Starter {
                 wyborZLazienkiOpcje();
                 break;
             case 2:
-                zasadyGry();
+                informacjeŁazienka();
                 System.out.println("");
                 lazienkaStartMenu();
                 System.out.println(">");
@@ -150,7 +152,8 @@ public class Łazienka extends Starter {
                 switchLazienka1();
                 break;
             case 3:
-                exit();
+
+                kuchnia.starterKuchnia();
                 break;
             case 4:
 
@@ -158,16 +161,17 @@ public class Łazienka extends Starter {
                 pomieszczenie.opisSalon();
                 break;
             case 5:
-                przeglądEkwipunku();
+                uzycieEkwipunku();
                 lazienkaStartMenu();
                 System.out.println(">");
                 wybórŁazienka = scanner.nextInt();
                 switchLazienka1();
                 break;
             case 6:
-                System.out.println("Kuchnia");
-                //kuchnia.starterKuchnia();
+                exit();
+
                 break;
+
             default:
                 System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
                 System.out.println(">");

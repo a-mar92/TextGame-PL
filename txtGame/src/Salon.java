@@ -53,7 +53,15 @@ public class Salon extends Starter {
 
             case 3:
                 zasadyGry();
-                System.out.println("chyba tu po key");
+
+
+                System.out.println("1 - przeszukaj Laptop (do zrobienia)\n" +
+                        "2 - przeszukaj łóżko\n" +
+                        "3 - Potrzebuje pomocy\n" +
+                        "4 - Idz do kuchni(do zrobienia)\n" +
+                        "5 - Idz do łazienki\n" +
+                        "6 - Ekwiunek\n" +
+                        ">");
                 salondzialanie = scanner.nextInt();
                 salonPrzeszukanie();
             case 4:
@@ -63,13 +71,7 @@ public class Salon extends Starter {
                 łazienka.lazienka();
                 break;
             case 6:
-                for (int i = 0; i < bag.size(); i++) {
-                    if (Starter.bag.size() == 0) {
-                        System.out.println("plecak pusty");
-                    } else
-                        System.out.println("w plecaku masz : " + Starter.bag.get(i));
-                }
-                System.out.println("Twój ekwipunek to : " + Starter.bag.size());
+                uzycieEkwipunku();
 
                 for (int i = 0; i < TEXT.salonDzialanie.length; i++) {
 
@@ -96,7 +98,7 @@ public class Salon extends Starter {
         System.out.println(">");
         int kluczValue = scanner.nextInt();
 
-        do {
+      //  do {
             switch (kluczValue) {
                 case 1:
                     dodawnieDoPlecaka("KLUCZ");
@@ -108,67 +110,76 @@ public class Salon extends Starter {
 //                    } else {
 //                        System.out.println("klucz został już dodany ");
 
-                    for (int i = 0; i < TEXT.salonDzialanie.length; i++) {
+                    System.out.println(
+                            "1 - przeszukaj Laptop (do zrobienia)\n" +
+                    "2 - przeszukaj łóżko\n" +
+                            "3 - Potrzebuje pomocy\n" +
+                            "4 - Idz do kuchni(do zrobienia)\n" +
+                            "5 - Idz do łazienki\n" +
+                            "6 - Ekwiunek\n" +
+                            ">");
 
-                        zwolnijTekst(TEXT.salonDzialanie[i], "", 0);
-                    }
-                    kluczValue = scanner.nextInt();
+                    salondzialanie = scanner.nextInt();
+                    salonPrzeszukanie();
                     break;
 
                 case 2:
-                    dodawnieDoPlecaka(klucz);
-//                    if (kluczSzafka) {
-//                        System.out.println("mam klucz, nic więcej nie znajdę. Idź do kuchni :)");
-//
-//                    } else {
-                        System.out.println("znalezłem klucz od szafki,zabierz go do ekwipunku. Nic innego tutaj nie ma" +
-                                "\n1 - Zabierz klucz " +
-                                "2 - szukaj innych wskazówek" +
-                                "3 - Idź się do łazienki " +
-                                "4 - Potrzebuje pomocy " +
-                                "5 - Idz do kuchni(bf) " +
-                                "6 - Ekwiunek(bf)"
-                        );
+                    if (Starter.bag.isEmpty()) {
+                        System.out.println("W łóżku znajdziesz tylko klucz. Wykorzystasz go w kuchni");
+                    } else {
+                        System.out.println("Nic więcej nie znajdziesz");
+                    }
+                    System.out.println(
+                          "1 - przeszukaj Laptop (do zrobienia)\n" +
+                    "2 - przeszukaj łóżko\n" +
+                            "3 - Potrzebuje pomocy\n" +
+                            "4 - Idz do kuchni(do zrobienia)\n" +
+                            "5 - Idz do łazienki\n" +
+                            "6 - Ekwiunek\n" +
+                            ">");
 
-                    kluczValue = scanner.nextInt(); //nie wiem po co to
-                    //System.out.println(TEXT.salonDzialanie);
+
+                    salondzialanie = scanner.nextInt();
+                    salonPrzeszukanie();
                     break;
                 case 3:
                     łazienka.lazienka();
                     break;
                 case 4:
                     zasadyGry();
+                    System.out.println(
+                            "1 - Zabierz klucz \n" +
+                                    "2 - szukaj innych wskazówek\n" +
+                                    "3 - Idź się do łazienki\n" +
+                                    "4 - Potrzebuje pomocy\n" +
+                                    "5 - Idz do kuchni\n" +
+                                    "6 - Ekwiunek\n" +
+                                    ">");
+                    kluczValue = scanner.nextInt();
+//                    salonPrzeszukanieCase2();
                     break;
                 case 5:
+                    System.out.println("PEweni tu");
                     kuchnia.starterKuchnia();
                     break;
                 case 6:
+                    uzycieEkwipunku();
 
-                    for (int i = 0; i < bag.size(); i++) {
-                        if (Starter.bag.size() == 0) {
-                            System.out.println("plecak pusty");
-                        } else
-                            System.out.println(Starter.bag.get(i));
-                    }
-                    System.out.println("Twój ekwipunek to : " + Starter.bag.size() +
-                            "\n 1 - Zabierz klucz " +
-                            "2 - szukaj innych wskazówek" +
-                            "3 - Idź się do łazienki " +
-                            "4 - Potrzebuje pomocy " +
-                            "5 - Idz do kuchni(bf) " +
-                            "6 - Ekwiunek(bf)");
+                    System.out.println(
+                            "1 - Zabierz klucz \n" +
+                                    "2 - szukaj innych wskazówek\n" +
+                                    "3 - Idź się do łazienki\n" +
+                                    "4 - Potrzebuje pomocy\n" +
+                                    "5 - Idz do kuchni\n" +
+                                    "6 - Ekwiunek\n" +
+                                    ">");
                     kluczValue = scanner.nextInt();
                     break;
             }
         }
-        while (!kluczSzafka);
 
 
-        salondzialanie = scanner.nextInt();
-        salonPrzeszukanie();
 
-
-    }
 
     public void salonOpisSwich() {
         switch (salonWspomnienie) {
@@ -190,17 +201,28 @@ public class Salon extends Starter {
                 break;
             case 3:
                 zasadyGry();
+                System.out.println(
+                        "1 - Wstań i szukaj jakiś wskazówek\n" +
+                        "2 - Siku !!! - Idź się do łazienki\n" +
+                        "3 - Potrzebuje pomocy\n" +
+                        "4 - Idz do kuchni\n" +
+                        "5 - Ekwiunek");
+                System.out.println(">");
+                salonWspomnienie = scanner.nextInt();
+                salonOpisSwich();
+
+
                 break;
             case 4:
                 kuchnia.starterKuchnia();
                 break;
             case 5:
-                przeglądEkwipunku();
+                uzycieEkwipunku();
                 System.out.println("1 - Wstań i szukaj jakiś wskazówek\n" +
                         "2 - Siku !!! - Idź się do łazienki\n" +
                         "3 - Potrzebuje pomocy\n" +
-                        "4 - Idz do kuchni(bf)\n" +
-                        "5 - Ekwiunek(bf)\n"
+                        "4 - Idz do kuchni\n" +
+                        "5 - Ekwiunek"
                 );
                 System.out.println(">");
                 salonWspomnienie = scanner.nextInt();

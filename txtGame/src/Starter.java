@@ -6,6 +6,7 @@ public class Starter {
     static LinkedList<String> bag = new LinkedList();
     boolean kluczSzafka = false;
     String kubek = "KUBEK";
+    String użycie;
     int pokoj = 0;
     int trybGry;
     int wybor;
@@ -109,7 +110,7 @@ public class Starter {
             zwolnijTekst(TEXT.wspomnienieSalon[i], "", 0);
 
         }
-        System.out.println("> wspomnienie ? ");
+        System.out.println(">  ");
         int wyborWspomnienie = scanner.nextInt();
         switch (wyborWspomnienie) {
             case 1:
@@ -120,10 +121,12 @@ public class Starter {
                 break;
             case 2:
                 zasadyGry();
+                System.out.println("Przeszukaj pokój, może znajdziesz jakąć ciekawy przedmiot....");
                 wspomnienie();
                 break;
             case 3:
-                System.out.println("Przeszukaj pokój, może znajdziesz jakąć ciekawy przedmiot....");
+                exit();
+                break;
             default:
                 System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
                 System.out.println(">");
@@ -165,20 +168,38 @@ public class Starter {
 
     }
 
-    public void przeglądEkwipunku() {
-        System.out.println("Masz w plecaku " + Starter.bag.size() + " przedmiotów");
+    public void uzycieEkwipunku() {
 
-        System.out.println(Starter.bag);
-    }
+        if (!(Starter.bag.isEmpty())){
+
+        System.out.println("Możesz użyć :" + (Starter.bag.toString()));
+            System.out.println("Jeżeli chcesz coś użyć z plecaka, wpisz nazwę, w przeciwnym wypadku naciśnij dowolny przycisk  ");
+          Scanner scanner1 = new Scanner(System.in);
+            użycie = scanner1.nextLine();
+
+            if (Starter.bag.contains(użycie.toUpperCase())){
+                if (użycie.toUpperCase().equals("TABLETKA") ){
+                    System.out.println("Od razu lepiej, już mnie nic nie boli :) ");
+                Starter.bag.remove("TABLETKA");
+                System.out.println("Aktualnie w plecaku mam " + Starter.bag);}
+            }else {
+                System.out.println( " wychodzę z plecaka");
+
+            }}
+        else System.out.println("Masz pusty plecak");
+
+        }
+
+
     public void dodawnieDoPlecaka(String przedmiot){
         if (Starter.bag.isEmpty()){
         Starter.bag.add(przedmiot);
-            System.out.println("dodana" +
+            System.out.println("dodano " +
                     przedmiot);}
     else {
 
             if (Starter.bag.contains(przedmiot)){
-                System.out.println("nie możesz dodać " + przedmiot);
+                System.out.println("nic tu więcej nie ma, zabrałeś już " + przedmiot);
                 System.out.println(przedmiot+" : masz go już w plecaku");
 
             }
@@ -190,7 +211,15 @@ public class Starter {
 
         }}
 
+    public void informacjeŁazienka(){
+        for (int i = 0; i < TEXT.informacjeŁazienka.length; i++)
+        zwolnijTekst(TEXT.informacjeŁazienka[i],"",0 );
     }
+
+
+    }
+
+
 
 
 
