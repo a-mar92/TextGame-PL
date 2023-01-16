@@ -94,19 +94,11 @@ public class Salon extends Starter {
                 } else
                     dodawnieDoPlecaka("KLUCZ");
 
-//                    if (!kluczSzafka) {
-//                        Starter.bag.add(klucz);
-//                        System.out.println("dodano " + klucz + " do ekwipunku");
-//                        kluczSzafka = true;
-//
-//                    } else {
-//                        System.out.println("klucz został już dodany ");
-
                 System.out.println(
-                        "1 - przeszukaj Laptop (do zrobienia)\n" +
+                        "1 - przeszukaj Laptop \n" +
                                 "2 - przeszukaj łóżko\n" +
                                 "3 - Potrzebuje pomocy\n" +
-                                "4 - Idz do kuchni(do zrobienia)\n" +
+                                "4 - Idz do kuchni\n" +
                                 "5 - Idz do łazienki\n" +
                                 "6 - Ekwiunek\n" +
                                 ">");

@@ -18,14 +18,14 @@ public class TEXT {
             "1- szukaj jakiś wskazówek", "2 - Idź się do łazienki",
             "3- Potrzebuje pomocy", "4 - Idz do kuchni", "5- Ekwiunek"};
     static String[] salonDzialanie = {
-            "1 - przeszukaj Laptop (do zrobienia)",
+            "1 - przeszukaj Laptop ",
             "2 - przeszukaj łóżko",
             "3 - Potrzebuje pomocy",
-            "4 - Idz do kuchni(do zrobienia)",
+            "4 - Idz do kuchni",
             "5 - Idz do łazienki",
             "6 - Ekwiunek "};
     static String[] salonDzialanieIntro = {
-            "Pora rozprpstować nogi",
+            "Pora rozprostować nogi",
             "wstajesz powoli",
             "łupie cię w kościach",
             "rozglądasz się po pokoju i szukasz czegoś co pomoże ci przypomieć zdarzenia z zeszłego dnia",

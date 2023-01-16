@@ -14,7 +14,7 @@ public class Starter {
     boolean petal = true;
     static String nazwaGracza;
     String item = "LATARKA";
-    String[] textStart = {"Beep !", "ależ ciężki poranek....", " czujesz to ?", "Bolą ręce, głowa, stopy..... ", "co się wczoraj działo ?!.... "
+    String[] textStart = {"Beep !", "ależ ciężki poranek....", " czujesz to ?", "\nBolą ręce, głowa, stopy..... ", "co się wczoraj działo ?!.... "
     };
 
     public void app() {
