@@ -39,7 +39,7 @@ public class TEXT {
             "1 - Opis pomieszczenia",
             "2 - Informacje łazienka",
             "3 - Idź do Kuchni",
-            "4 - wróć do Salonu ",
+            "4 - Wróć do Salonu ",
             "5 - Ekwipunek",
             "6 - Exit",
 
@@ -53,7 +53,7 @@ public class TEXT {
             "4 - Informacje łazienka",
             "5 - Ekwipunek",
             "6 - Wróć do Salonu ",
-            "7 - idz do kuchni "};
+            "7 - Idz do kuchni "};
     static String[] informacjeŁazienka ={
             "W łązience możesz znaleźć tabletki oraz kubek",
             "Kubek użyjesz do tego żeby zrobić kawę, na pewno pomoże żeby się dobudzić ",
@@ -65,9 +65,9 @@ public class TEXT {
             "1- Wstań i szukaj jakiś wskazówek", "2 - Siku !!! - idź się do łazienki",
             "3- Potrzebuje pomocy", "4 - Idz do kuchni", "5 - Ekwiunek"};
 
-    static String[] opisKuchnia = {"-KUCHNIA-", "wchodzisz do kuchni,"," troszeczkę się dziwisz bo spodziewałeś się ogromnego bałaganu",
-            "z reguły nie chce Ci się sprzątać, a tu taka niespodzianka - porządek jak nigdy ","widzisz automat do kawy i pozamykane szafki ",
-            "co robisz ? "};
+    static String[] opisKuchnia = {"-KUCHNIA-", "Wchodzisz do kuchni,","Troszeczkę się dziwisz bo spodziewałeś się ogromnego bałaganu",
+            "Z reguły nie chce Ci się sprzątać, a tu taka niespodzianka - porządek jak nigdy ","Widzisz automat do kawy i pozamykane szafki ",
+            "Co robisz ? "};
     static String[] menuKuchnia = {
             "1- Zrób kawę ", "2- Przeszukaj szafki ",
             "3- Idź do salonu", "4- Idz do Łazienki", "5- Ekwiunek"};
@@ -75,9 +75,26 @@ public class TEXT {
     static String[] salonDzialanieLozko = { "No tak, coś mi się wbijało w plecy przez całą noc","ciekawe co to było....",
             "Znalazłem klucz do kuchennej szafki",
             "\n1 - Zabierz klucz",
-            "2 - szukaj innych wskazówek\n" +
+            "2 - Szukaj innych wskazówek\n" +
             "3 - Idź się do łazienki\n" +
             "4 - Potrzebuje pomocy\n" +
             "5 - Idz do kuchni\n" +
             "6 - Ekwiunek"};
+
+    static String[] laptop = { "Alarm !!!!",
+        "Nowe powiadomienie ! ",Starter.nazwaGracza + "zabierz leki !!!!!","Wydaje mi się, że twoja pamięć szwankuje",
+        "Sprawdzam ekwipunek...."};
+    static String [] laptopTabletka = {
+           "Mam tabletkę w plecaku, pamięć wraca...  ",
+            "Już wszystko wiem !","Cierpię na chorobę ulotu pamięci", "Muszę brać systematycznie leki",
+                    "Tak się składa, że ostatnio o nich zapomniałem",
+            "wszystko przez to że znajomi zorganizowali mi przyjęcie niespodziankę",
+            "Stąd ten porządek w kuchni...","No i już wiem skąd ten ból nóg i rąk i głowy...",
+            "Z tego co pamiętam dobrze się bawiłem.",
+            "Dzięki za wspólną grę i za odzyskanie pamięci ",
+           "Koniec gry","","","", "Wybierz opcje :",
+                    "1 - Rozpocznij nową grę ",
+                    "2 - Wyjście z gry"};
+
 }
+

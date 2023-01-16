@@ -2,16 +2,17 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Kuchnia extends Starter {
+    static boolean kawa = false;
     int kuchniaWspomnienie;
     int kuchniaWybor;
 
     public void starterKuchnia() {
         for (int i = 0; i < TEXT.opisKuchnia.length; i++) {
 
-            zwolnijTekst(TEXT.opisKuchnia[i], "", 0);
+            zwolnijTekst(TEXT.opisKuchnia[i], "", spowolnienie);
         }
         for (int i = 0; i < TEXT.menuKuchnia.length; i++) {
-            zwolnijTekst(TEXT.menuKuchnia[i], "", 0);
+            zwolnijTekst(TEXT.menuKuchnia[i], "", spowolnienie);
         }
         System.out.println(">");
 
@@ -28,16 +29,17 @@ public class Kuchnia extends Starter {
         switch (kuchniaWybor) {
             case 1:
                 zrobKawe();
+
                 break;
             case 2:
                 if (!bag.contains("KLUCZ")) {
                     System.out.println(" Zeby Otworzyć szafkę potrzebny jest KLUCZ ");}
                 else {
-                    System.out.println("Znalezłem yubi KEY, teraz mogę odblokować laptop - automatycznie dodano do ekwipunku");
+                    System.out.println("Znalezłem YUBIKEY, teraz mogę odblokować laptop - automatycznie dodano do ekwipunku");
                     Starter.bag.add("YubiKey");
                 }
                     for (int i = 0; i < TEXT.menuKuchnia.length; i++) {
-                        zwolnijTekst(TEXT.menuKuchnia[i], "", 0);}
+                        zwolnijTekst(TEXT.menuKuchnia[i], "", spowolnienie);}
                     System.out.println(">");
                     kuchniaWybor = scanner.nextInt();
                     menuKuchnia();
@@ -53,14 +55,14 @@ public class Kuchnia extends Starter {
             case 5:
                 uzycieEkwipunku();
                 for (int i = 0; i < TEXT.menuKuchnia.length; i++) {
-                    zwolnijTekst(TEXT.menuKuchnia[i], "", 0);}
+                    zwolnijTekst(TEXT.menuKuchnia[i], "", spowolnienie);}
                 System.out.println(">");
                 kuchniaWybor = scanner.nextInt();
                 menuKuchnia();
                 break;
         }
         for (int i = 0; i < TEXT.menuKuchnia.length; i++) {
-            zwolnijTekst(TEXT.menuKuchnia[i], "", 0);
+            zwolnijTekst(TEXT.menuKuchnia[i], "", spowolnienie);
 
 
         }
@@ -68,9 +70,9 @@ public class Kuchnia extends Starter {
 
     public void zrobKawe() {
         if (!bag.contains("KUBEK")) {
-            System.out.println(" Zeby zrobić kawę potrzebny jest kubek ");
+            System.out.println(" Zeby zrobić kawę potrzebny jest KUBEK ");
             for (int i = 0; i < TEXT.menuKuchnia.length; i++) {
-                zwolnijTekst(TEXT.menuKuchnia[i], "", 0);}
+                zwolnijTekst(TEXT.menuKuchnia[i], "", spowolnienie);}
             System.out.println(">");
             kuchniaWybor = scanner.nextInt();
             menuKuchnia();
@@ -79,10 +81,10 @@ public class Kuchnia extends Starter {
             Starter.bag.remove(kubek);
             System.out.println("Robię kawe ");
             Starter.bag.add("KAWA");
-            System.out.println("dodano kawę do ekwipunku");
+            System.out.println("Kawa wypita, teraz mam siłę, żeby zabrać KLUCZ do szafki");
         }
         for (int i = 0; i < TEXT.menuKuchnia.length; i++) {
-            zwolnijTekst(TEXT.menuKuchnia[i], "", 0);}
+            zwolnijTekst(TEXT.menuKuchnia[i], "", spowolnienie);}
         System.out.println(">");
         kuchniaWybor = scanner.nextInt();
         menuKuchnia();

@@ -17,41 +17,7 @@ public class Łazienka extends Starter {
 
 
     }
-
-//    public void wyborZLazienki() {
-//
-//        switch (wybórŁazienka) {
-//            case 1:
-//                lazienkaOpis();
-//                lazienkaMenu();
-//                wybórŁazienka = scanner.nextInt();
-//                System.out.println("> chyba tu");
-//                wyborZLazienkiOpcje();
-//                break;
-//            case 2:
-//                informacjeŁazienka();
-//                break;
-//            case 6:
-//                exit();
-////                    wyborZLazienki();
-//                break;
-//            case 4:
-//                informacjeŁazienka();
-//                break;
-//            case 5:
-//                uzycieEkwipunku();
-//                break;
-//            case 3:
-//                break;
-//            default:
-//                System.out.println("Jestem prostą grą, nie znam tej funkcji, spróbuj jeszcze raz");
-//                System.out.println(">");
-//                wybor = scanner.nextInt();
-//        }
-
-//    }
-
-    public void wyborZLazienkiOpcje() {
+        public void wyborZLazienkiOpcje() {
         switch (wyborłazienkaOpis) {
             case 1:
                 dodawnieDoPlecaka(tabletka);
@@ -91,7 +57,7 @@ public class Łazienka extends Starter {
             case 6:
                 System.out.println("idę do salonu ");
                 for (int i = 0; i < TEXT.opisSalon.length; i++) {
-                    zwolnijTekst(TEXT.opisSalon[i], "", 0);
+                    zwolnijTekst(TEXT.opisSalon[i], "", spowolnienie);
                 }
                 Salon pomieszczenie = new Salon();
                 pomieszczenie.opisSalon();
@@ -112,25 +78,25 @@ public class Łazienka extends Starter {
 
     public void lazienkaStart() {
         for (int i = 0; i < TEXT.lazienkaStart.length; i++) {
-            zwolnijTekst(TEXT.lazienkaStart[i], "", 0);
+            zwolnijTekst(TEXT.lazienkaStart[i], "", spowolnienie);
         }
     }
 
     public void lazienkaStartMenu() {
         for (int i = 0; i < TEXT.lazienkaStartMenu.length; i++) {
-            zwolnijTekst(TEXT.lazienkaStartMenu[i], "", 0);
+            zwolnijTekst(TEXT.lazienkaStartMenu[i], "", spowolnienie);
         }
     }
 
     public void lazienkaOpis() {
         for (int i = 0; i < TEXT.lazienkaOpis.length; i++) {
-            zwolnijTekst(TEXT.lazienkaOpis[i], "", 0);
+            zwolnijTekst(TEXT.lazienkaOpis[i], "", spowolnienie);
         }
     }
 
     public void lazienkaMenu() {
         for (int i = 0; i < TEXT.lazienkaMenu.length; i++) {
-            zwolnijTekst(TEXT.lazienkaMenu[i], "", 0);
+            zwolnijTekst(TEXT.lazienkaMenu[i], "", spowolnienie);
         }
     }
 
@@ -152,7 +118,6 @@ public class Łazienka extends Starter {
                 switchLazienka1();
                 break;
             case 3:
-
                 kuchnia.starterKuchnia();
                 break;
             case 4:
@@ -169,7 +134,7 @@ public class Łazienka extends Starter {
                 break;
             case 6:
                 exit();
-
+System.exit(0);
                 break;
 
             default:
